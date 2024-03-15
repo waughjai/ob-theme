@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="Off Base">
+	<description>Code standards for Off Base.</description>
+
+	<!-- Add PHPDoc rules -->
+	<rule ref="WordPress-Docs"/>
+
+	<!-- Enforce functions having return and parameter types -->
+	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
+	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint"/>
+	<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/>
+
+	<!-- Files -->
+	<file>ob-starter</file>
+</ruleset>

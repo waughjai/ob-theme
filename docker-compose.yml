@@ -1,0 +1,42 @@
+services:
+  db:
+    image: mariadb:10.6
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    restart: always
+    volumes:
+      - container-volume:/var/lib/mysql
+    networks:
+      - default
+  wordpress:
+    build: .
+    image: wordpress:beta-6.5-php8.3
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./ob-starter:/var/www/html/wp-content/themes/ob-starter
+      - ./.config/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./.config/main.conf:/etc/apache2/conf-enabled/main.conf
+      - ./.config/wp-config.php:/var/www/html/wp-config.php
+    ports:
+      - 3001:80
+    restart: always
+    environment:
+      WP_ENV: ${WP_ENV}
+      WP_HOME: ${WP_HOME}
+      WP_SITEURL: ${WP_SITEURL}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_HOST: ${DB_HOST}
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WP_ACCESSIBLE_HOSTS: ${WP_ACCESSIBLE_HOSTS}
+      WP_HTTP_BLOCK_EXTERNAL: ${WP_HTTP_BLOCK_EXTERNAL}
+      WORDPRESS_DEBUG: ${WP_DEBUG}
+volumes:
+  container-volume:
+  wordpress:
+  ob-blocks:

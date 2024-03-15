@@ -1,0 +1,44 @@
+{
+	"name": "offbase/blocks-test",
+	"type": "project",
+	"authors": [
+        {
+            "name": "Jaimeson Waugh",
+            "email": "jaimeson@offbase.com"
+        }
+	],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org/"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:OffBase/coding-standards.git"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+			"composer/installers": true,
+			"johnpbloch/wordpress-core-installer": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+    },
+    "extra": {
+        "installer-paths": {
+            "content/plugins/{$name}": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+	"require": {
+		"johnpbloch/wordpress-core": "^6.4",
+		"johnpbloch/wordpress-core-installer": "^2.0"
+	},
+	"require-dev": {
+        "offbase/coding-standards": "dev-master",
+		"wp-coding-standards/wpcs": "^2.3.0",
+		"squizlabs/php_codesniffer": "^3.9",
+		"slevomat/coding-standard": "^8.15"
+	}
+}
