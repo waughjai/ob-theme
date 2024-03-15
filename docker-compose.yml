@@ -19,6 +19,8 @@ services:
     volumes:
       - ./wordpress:/var/www/html
       - ./ob-starter:/var/www/html/wp-content/themes/ob-starter
+      - ./ob-blocks:/var/www/html/wp-content/mu-plugins/ob-blocks
+      - ./.config/mu-plugins-index.php:/var/www/html/wp-content/mu-plugins/index.php
       - ./.config/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./.config/main.conf:/etc/apache2/conf-enabled/main.conf
       - ./.config/wp-config.php:/var/www/html/wp-config.php
@@ -39,4 +41,5 @@ services:
 volumes:
   container-volume:
   wordpress:
+  ob-starter:
   ob-blocks:
