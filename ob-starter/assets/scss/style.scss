@@ -1,3 +1,72 @@
+$primaryColor: #9A6982;
+$secondaryColor: #81B68E;
+$tertiaryColor: #C8E1CD;
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/*
+ * Sticky Footer
+ */
+
+html,
 body {
-	background-color: orange;
+	height: 100%;
+}
+
+.wp-site-blocks {
+	min-height: 100%;
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
+
+.footer {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+
+
+/*
+ * General Styles
+ */
+
+body {
+	background-color: $tertiaryColor;
+	font-family: "Rubik";
+}
+
+.header {
+	height: 30rem;
+	overflow: hidden;
+	position: relative;
+}
+
+.header-banner-image {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.header-banner-title {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 3rem;
+	text-align: center;
+	z-index: 2;
+}
+
+.article {
+	width: 100%;
+	max-width: 60rem;
+	margin: 0 auto;
+}
+
+.footer {
+	background-color: $primaryColor;
+	padding: 1rem;
 }

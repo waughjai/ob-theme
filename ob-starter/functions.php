@@ -26,3 +26,8 @@ function ob_starter_enqueue_styles_and_scripts(): void {
 }
 
 add_action( 'wp_enqueue_scripts', 'ob_starter_enqueue_styles_and_scripts' );
+
+/**
+ * Disable layout styles.
+ */
+add_theme_support( 'disable-layout-styles' );

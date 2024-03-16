@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch",
+    "serve": "docker-compose up -d",
+    "update:ob-blocks": "git submodule update --rebase --remote",
     "lint:php": "vendor/squizlabs/php_codesniffer/bin/phpcs -d error_reporting=\"E_ALL&~E_DEPRECATED\" -s --extensions=php --standard=phpcs.xml",
     "lint:css": "stylelint ob-starter/assets/scss/**/*.scss",
     "lint:js": "eslint ./ob-starter/assets/src",
